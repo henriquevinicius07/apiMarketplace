@@ -2,8 +2,10 @@ package com.example.apiMarketplace.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Product {
 
     @Id
@@ -20,7 +22,7 @@ public class Product {
 
     @NotNull(message = "Preço é obrigatório")
     @DecimalMin(value = "0.0", inclusive = true, message = "Preço deve ser maior ou igual a zero")//Preço é obrigatório - Valida que o campo price não pode ser nulo. Preço deve ser maior que zero - Valida que o campo price deve ser um valor positivo.
-    private Double price;
+    private double price;
 
     @NotNull(message = "Quantidade é obrigatória")
     @Min(value = 0, message = "Quantidade deve ser maior ou igual a zero")//Quantidade é obrigatória - Valida que o campo quantity não pode ser nulo. Quantidade deve ser maior ou igual a zero - Valida que o campo quantity deve ser um valor inteiro positivo ou zero.
